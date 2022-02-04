@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web AR Viewer</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"
+    ></script>
+
+    <script
+      nomodule
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"
+    ></script>
+
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js"></script>
+
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
+
+    <link rel="stylesheet" href="ContainerStyle.css" />
+  </head>
+  <body>
+    <model-viewer
+      src="https://devdensolutions.github.io/FurnitureViz/bikeFinal.glb"
+      ios-src="https://devdensolutions.github.io/FurnitureViz/Sofa.usdz"
+      ar
+      auto-rotate
+	  shadow-intensity="0.8"
+	  camera-controls
+    >
+	
+		<button slot="ar-button" id="ar-button">
+		  View in your space
+		</button>
+
+		<div id="ar-prompt">
+		  <img src="../../assets/hand.png">
+		</div>
+
+		<button id="ar-failure">
+		  AR is not tracking!
+		</button>
+
+		<div class="slider">
+		  <div class="slides">
+			  <button class="slide selected" onclick="switchSrc(this, 'bikeFinal')" style="background-image: url('https://devdensolutions.github.io/FurnitureViz/Images/bike.png');">
+
+			  </button><button class="slide" onclick="switchSrc(this, 'sofa3')" style="background-image: url('https://devdensolutions.github.io/FurnitureViz/Images/sofa.png');">   
+		  </button></div>
+		</div>
+    </model-viewer>
+	
+	<script type="module">
+		const modelViewer = document.querySelector("model-viewer");
+
+		window.switchSrc = (element, name) => {
+			const base = "https://devdensolutions.github.io/FurnitureViz/" + name;
+			modelViewer.src = base + '.glb';
+			modelViewer.ios-src = base + '.usdz';
+			modelViewer.poster = base + '.png';
+			const slides = document.querySelectorAll(".slide");
+			slides.forEach((element) => {element.classList.remove("selected");});
+			element.classList.add("selected");
+		};
+
+		document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+			// Keep slider interactions from affecting the XR scene.
+		  ev.preventDefault();
+		});
+</script>
+	
+  </body>
+</html>
+<script type="module">
+  const modelViewer = document.querySelector("model-viewer");
+
+  window.switchSrc = (element, name) => {
+    const base = "https://devdensolutions.github.io/FurnitureViz/" + name;
+    modelViewer.src = base + '.glb';
+	modelViewer.ios-src = base + '.usdz';
+    modelViewer.poster = base + '.png';
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((element) => {element.classList.remove("selected");});
+    element.classList.add("selected");
+  };
+
+  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
+  });
+</script>
+
