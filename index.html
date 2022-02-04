@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="ContainerStyle.css" />
   </head>
   <body>
-    <model-viewer src="./bikeFinal.glb" shadow-intensity="0.3" ar camera-controls alt="A 3D model carousel">
+    <model-viewer src="./Sofa_1.glb" shadow-intensity="0.3" ar camera-controls alt="A 3D model carousel">
   
   <button slot="ar-button" id="ar-button">
     View in your space
@@ -34,8 +34,9 @@
 
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, 'bikeFinal')" style="display: inline-block;">Chair</button>
-	  <button class="slide" onclick="switchSrc(this, 'sofa3')" style="display: inline-block;">Table</button>
+      <button class="slide selected" onclick="switchSrc(this, 'Sofa_1')" style="display: inline-block; background-color: #9ACD32;"></button>
+	  <button class="slide" onclick="switchSrc(this, 'Sofa_2')" style="display: inline-block; background-color: #A52A2A;"></button>
+	  <button class="slide" onclick="switchSrc(this, 'Sofa_3')" style="display: inline-block; background-color: #BA55D3;"></button>
 	  
 	  </div>
   </div>
@@ -47,6 +48,7 @@
   window.switchSrc = (element, name) => {
     const base = "./" + name;
     modelViewer.src = base + '.glb';
+    modelViewer.ios-src = base + '.usdz';
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
@@ -147,14 +149,14 @@
   .slide {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 100px;
+    width: 50px;
     height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     background-color: #fff;
     margin-right: 10px;
-    border-radius: 10px;
+    border-radius: 25px;
     border: none;
     display: flex;
   }
