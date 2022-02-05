@@ -34,9 +34,9 @@
 
   <div class="slider">
     <div class="slides">
-      <button class="slide selected" onclick="switchSrc(this, 'Sofa_1')" style="display: inline-block; background-color: #9ACD32;"></button>
-	  <button class="slide" onclick="switchSrc(this, 'Sofa_2')" style="display: inline-block; background-color: #A52A2A;"></button>
-	  <button class="slide" onclick="switchSrc(this, 'Sofa_3')" style="display: inline-block; background-color: #BA55D3;"></button>
+      <button class="slide selected" onclick="switchSrc(this, 'Sofa_1','Green Sofa')" style="display: inline-block; background-color: #9ACD32;"></button>
+	  <button class="slide" onclick="switchSrc(this, 'Sofa_2','Red Sofa')" style="display: inline-block; background-color: #A52A2A;"></button>
+	  <button class="slide" onclick="switchSrc(this, 'Sofa_3','Pink Sofa')" style="display: inline-block; background-color: #BA55D3;"></button>
 	  
 	  </div>
   </div>
@@ -51,10 +51,11 @@
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
 
-  window.switchSrc = (element, name) => {
+  window.switchSrc = (element, name, sofaName) => {
     const base = "./" + name;	
 
-	
+	const div = document.getElementById('annotation');  
+	div.innerHTML = sofaName; 
 	
 	modelViewer.src = base + '.glb';
 	modelViewer.iosSrc = base + '.usdz';

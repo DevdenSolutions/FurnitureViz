@@ -50,14 +50,14 @@ model-viewer {
     height: 20px;
     border-radius: 10px;
     border: none;
-    background-color: blue;
+    background-color: #7EC8E3;
     box-sizing: border-box;
   }
 
  
   button[slot="hotspot-foot"]:not([data-visible]) {
     background-color: transparent;
-    border: 3px solid blue;
+    border: 3px  #7EC8E3;
   }
 
   
