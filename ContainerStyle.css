@@ -43,6 +43,12 @@ model-viewer {
   flex-shrink: 0;
   text-decoration: none;
 }
+
+  button[slot="hotspot-foot"]:not([data-visible]) {
+    background-color: transparent;
+    border: 3px solid blue;
+  }
+
   
  #annotation{
     background-color: #888888;
