@@ -48,26 +48,11 @@
 
   window.switchSrc = (element, name) => {
     const base = "./" + name;	
-	
-	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-    if (/windows phone/i.test(userAgent)) {
-		windows;
-        return "Windows Phone";
-    }
-
-    <!-- if (/android/i.test(userAgent)) { -->
-		<!-- Android; -->
-        <!-- return "Android"; -->
-    <!-- } -->
-
-    <!-- if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { -->
-       <!-- iOS; -->
-	   <!-- return "iOS"; -->
-    <!-- } -->
 	
 	
 	modelViewer.src = base + '.glb';
+	modelViewer.iossrc = base + '.usdz';
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
