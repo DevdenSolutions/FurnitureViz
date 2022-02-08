@@ -43,7 +43,7 @@
 	  </div>
   </div>-->
 
-  <div id="dropdwn">
+   <!--<div id="dropdwn">
     <label for="drpdwnsrc">Product:</label>
     <select id="drpdwnsrc">
       <option value="Green Sofa||hj">Green Sofa</option>
@@ -61,6 +61,25 @@
       <option value="Blue Bed||Pink">Blue Bed</option>
       <option value="Brown Bed||Brown">Brown Bed</option>
       <option value="White Bed||White">White Bed</option>
+    </select><br>-->
+	
+	 <div class="slider">
+    <div class="slides">
+      <button class="slide selected" id="button1" onclick="switchSrc(this,0)" style="display: inline-block; background-color: #9ACD32;"></button>
+	  <button class="slide" id="button2" onclick="switchSrc(this,1)" style="display: inline-block; background-color: #A52A2A;"></button>
+	  <button class="slide" id="button3" onclick="switchSrc(this,2)" style="display: inline-block; background-color: #BA55D3;"></button>
+	  
+	  </div>
+  </div>
+	
+	<div id="dropdwn">
+    <label for="drpdwnsrc">Product:</label>
+    <select id="drpdwnsrc">
+      <option value="Sofa||Green,Red,Pink||hj">Sofa</option>
+      <option value="Chair||Black,Brown,Orange||sd">Chair</option>
+      <option value="Lamp||Green,Pink,Red||sdf">Lamp</option>
+      <option value="Bed||Black,White,Brown||sdf">Bed</option>
+      <option value="DinningTable||Green,White,Brown||sdf">DinningTable</option>
     </select><br>
 	<label for="show-text">Show Text:</label>
     <input id="show-text" type="checkbox" checked="true">
@@ -80,21 +99,42 @@
   
   //var dataPositions = [["0.17229555381485404m","0.8098294965826215m","0.6398929798039262m"],["0.1571773503677714m","0.34811380176846585m","-0.18072995252219695m"]];
   //var dataPositions = [[0.17229555381485404,0.8098294965826215,0.6398929798039262],[0.1571773503677714,0.34811380176846585,-0.18072995252219695]];
-  modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => {
+  <!-- modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => { -->
   
-    var annotationName= event.target.value.split("||");
-    console.log(annotationName[1]);
-    div.innerHTML = annotationName[1]; 
+    <!-- var annotationName= event.target.value.split("||"); -->
+    <!-- console.log(annotationName[1]); -->
+    <!-- div.innerHTML = annotationName[1];  -->
     
-    modelViewer.src = annotationName[0]+ '.glb';
-    modelViewer.iosSrc = annotationName[0]+ '.usdz';
+    <!-- modelViewer.src = annotationName[0]+ '.glb'; -->
+    <!-- modelViewer.iosSrc = annotationName[0]+ '.usdz'; -->
 	
-	  /*  modelViewer.updateHotspot({
-      name: 'hotspot-7',
-      position: dataPositions[1]
-    });*/
+	  <!-- /*  modelViewer.updateHotspot({ -->
+      <!-- name: 'hotspot-7', -->
+      <!-- position: dataPositions[1] -->
+    <!-- });*/ -->
 	
+    <!-- }); -->
+	
+	var colorValues="";
+    var productName = "";
+  
+  
+  modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => {
+    var drpDwnVal= event.target.value.split("||");
+    div.innerHTML = drpDwnVal[2]; 
+    
+    colorValues = drpDwnVal[1];
+    productName = drpDwnVal[0];
+    
+    document.getElementById('button1').style.backgroundColor = colorValues.split(",")[0];
+    document.getElementById('button2').style.backgroundColor = colorValues.split(",")[1];
+    document.getElementById('button3').style.backgroundColor = colorValues.split(",")[2];
+    
+    modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
+    modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';
+    
     });
+
 	
 	const checkbox = modelViewer.querySelector('#show-text');
     checkbox.addEventListener('change', () => {
@@ -108,6 +148,23 @@
 		console.log(checkbox.checked);
       }
     
+  });
+  
+  window.switchSrc = (element, index) => {	
+    
+	modelViewer.src = colorValues.split(",")[index]+" "+ productName+ '.glb';
+	modelViewer.iosSrc = colorValues.split(",")[index]+" "+productName + '.usdz';
+    
+   
+    
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((element) => {element.classList.remove("selected");});
+    element.classList.add("selected");
+  };
+
+  document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+    // Keep slider interactions from affecting the XR scene.
+    ev.preventDefault();
   });
 
   /*window.switchSrc = (element, name, sofaName) => {
