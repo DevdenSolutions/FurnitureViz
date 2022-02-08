@@ -77,11 +77,15 @@ console.log(annotationName[1]);
 	
 	const checkbox = modelViewer.querySelector('#show-text');
     checkbox.addEventListener('change', () => {
-    modelViewer.querySelectorAll('button').forEach((Hotspot) => {
+    modelViewer.getElementById('#anectode').forEach((hotspot) => {
       if (checkbox.checked) {
-        Hotspot.classList.remove('hide');
+        hotspot.classList.remove('hide');
+		console.log(checkbox.checked);
+		
       } else {
-        Hotspot.classList.add('hide');
+        hotspot.classList.add('hide');
+		console.log(checkbox.checked);
+		console.log(hotspot.classList.name);
       }
     });
   });
@@ -121,6 +125,9 @@ console.log(annotationName[1]);
     left: 16px;
     max-width: unset;
     transform: unset;
+  }
+  .hide{
+    display: none;
   }
   #ar-button {
     background-repeat: no-repeat;
