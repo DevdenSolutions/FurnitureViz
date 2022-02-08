@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="ContainerStyle.css" />
   </head>
   <body>
-    <model-viewer id="modelView" src="./Sofa_1.glb" ios-src="./Sofa_1.usdz" shadow-intensity="0.3" ar camera-controls alt="A 3D model carousel">
+    <model-viewer id="modelView" src="./Green Sofa.glb" ios-src="./Green Sofa.usdz" shadow-intensity="0.3" ar camera-controls alt="A 3D model carousel">
   
   <button slot="ar-button" id="ar-button">
     AR
@@ -32,13 +32,22 @@
 
   
 
-  <div class="slider">
+ <!-- <div class="slider">
     <div class="slides">
       <button class="slide selected" onclick="switchSrc(this, 'Sofa_1','Green Sofa')" style="display: inline-block; background-color: #9ACD32;"></button>
 	  <button class="slide" onclick="switchSrc(this, 'Sofa_2','Red Sofa')" style="display: inline-block; background-color: #A52A2A;"></button>
 	  <button class="slide" onclick="switchSrc(this, 'Sofa_3','Pink Sofa')" style="display: inline-block; background-color: #BA55D3;"></button>
 	  
 	  </div>
+  </div>-->
+
+  <div id="dropdwn">
+    <label for="drpdwnsrc">Product:</label>
+    <select id="drpdwnsrc">
+      <option value="Green Sofa">Green Sofa</option>
+      <option value="Red Sofa">Red Sofa</option>
+      <option value="Pink Sofa">Pink Sofa</option>
+    </select><br>
   </div>
   
     <button class="Hotspot" id ="anectode" slot="hotspot-7" data-position="0.17229555381485404m 0.8098294965826215m 0.6398929798039262m" data-normal="-0.28712627885859493m 0.9555782359326451m 0.06654874154084724m" data-visibility-attribute="visible"> <div id="annotation">Green Sofa</div></button>
@@ -50,8 +59,17 @@
 
 <script type="module">
   const modelViewer = document.querySelector("model-viewer");
+  const div = document.getElementById('annotation'); 
 
-  window.switchSrc = (element, name, sofaName) => {
+  modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => {
+    var annotationName= event.target.value.replace("_"," ");
+    div.innerHTML = annotationName; 
+
+    modelViewer.src = event.target.value+'.glb';
+    modelViewer.iosSrc = event.target.value+ '.usdz';
+    });
+
+  /*window.switchSrc = (element, name, sofaName) => {
     const base = "./" + name;	
 
 	const div = document.getElementById('annotation');  
@@ -67,7 +85,7 @@
   document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
     // Keep slider interactions from affecting the XR scene.
     ev.preventDefault();
-  });
+  });*/
 </script>
 
 <style>
@@ -80,7 +98,13 @@
     background-color: #eee;
     --poster-color: #eee;
   }
-
+  #dropdwn {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    max-width: unset;
+    transform: unset;
+  }
   #ar-button {
     background-repeat: no-repeat;
     background-size: 20px 20px;
