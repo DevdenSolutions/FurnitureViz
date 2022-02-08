@@ -108,6 +108,10 @@
   
   
   modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => {
+
+	  console.log("a");  
+      switchSrc(currentColorbtn,0);
+
     var drpDwnVal= event.target.value.split("||");
     div.innerHTML = drpDwnVal[2]; 
     
@@ -117,7 +121,7 @@
     document.getElementById('button1').style.backgroundColor = colorValues.split(",")[0];
     document.getElementById('button2').style.backgroundColor = colorValues.split(",")[1];
     document.getElementById('button3').style.backgroundColor = colorValues.split(",")[2];
-    switchSrc(currentColorbtn,0);
+
    /* modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
     modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';*/
     
@@ -138,8 +142,12 @@
     
   });
   
+  window.onload = ()=>{
+   currentColorbtn = document.getElementById('button1');
+  };
+  
   window.switchSrc = (element, index) => {	
-    
+    console.log("called");
 	modelViewer.src = colorValues.split(",")[index]+" "+productName+ '.glb';
 	modelViewer.iosSrc = colorValues.split(",")[index]+" "+productName + '.usdz';
     
