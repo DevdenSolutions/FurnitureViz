@@ -77,8 +77,8 @@
     <label for="drpdwnsrc">Product:</label>
     <select id="drpdwnsrc">
       <option value="Sofa||Green,Red,Pink||hj">Sofa</option>
-      <option value="Chair||Black,Brown,Orange||sd">Chair</option>
-      <option value="Lamp||Green,Pink,Red||sdf">Lamp</option>
+      <option value="Chair||Black,Brown,Orange||Custom&nbsp;woodwork&nbsp;for<br>your&nbsp;custom&nbsp;tastes">Chair</option>
+      <option value="Lamp||Green,Pink,Red||Lighting&nbsp;up creative minds">Lamp</option>
       <option value="Bed||Black,White,Brown||sdf">Bed</option>
       <option value="DinningTable||Green,White,Brown||sdf">Dining Table</option>
     </select><br>
@@ -101,7 +101,7 @@
   const modelViewer = document.querySelector("model-viewer");
   const div = document.getElementById('annotation'); 
   
-  
+  var currentColorbtn = document.getElementById('button1');
 	
 	var colorValues="";
     var productName = "";
@@ -117,9 +117,9 @@
     document.getElementById('button1').style.backgroundColor = colorValues.split(",")[0];
     document.getElementById('button2').style.backgroundColor = colorValues.split(",")[1];
     document.getElementById('button3').style.backgroundColor = colorValues.split(",")[2];
-    
-    modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
-    modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';
+    switchSrc(currentColorbtn,0);
+   /* modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
+    modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';*/
     
     });
 
@@ -144,7 +144,7 @@
 	modelViewer.iosSrc = colorValues.split(",")[index]+" "+productName + '.usdz';
     
    
-    
+    currentColorbtn = element;
     const slides = document.querySelectorAll(".slide");
     slides.forEach((element) => {element.classList.remove("selected");});
     element.classList.add("selected");
