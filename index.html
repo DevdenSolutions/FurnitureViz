@@ -77,11 +77,11 @@ console.log(annotationName[1]);
 	
 	const checkbox = modelViewer.querySelector('#show-text');
     checkbox.addEventListener('change', () => {
-    modelViewer.querySelectorAll('button').forEach((hotspot) => {
+    modelViewer.querySelectorAll('button').forEach((Hotspot) => {
       if (checkbox.checked) {
-        hotspot.classList.remove('hide');
+        Hotspot.classList.remove('hide');
       } else {
-        hotspot.classList.add('hide');
+        Hotspot.classList.add('hide');
       }
     });
   });
