@@ -55,12 +55,13 @@
       <option value="Red Lamp||Red">Red Lamp</option>
       <option value="Green Lamp||Green">Green Lamp</option>
       <option value="Pink Lamp||Pink">Pink Lamp</option>
+	  <option value="Black Bed||Pink">Black Bed</option>
+      <option value="Brown Bed||Brown">Brown Bed</option>
+      <option value="White Bed||White">White Bed</option>
       <option value="Green DinningTable||Pink">Green DinningTable</option>
       <option value="Brown DinningTable||Pink">Brown DinningTable</option>
       <option value="White DinningTable||Pink">White DinningTable</option>
-      <option value="Blue Bed||Pink">Blue Bed</option>
-      <option value="Brown Bed||Brown">Brown Bed</option>
-      <option value="White Bed||White">White Bed</option>
+      
     </select><br>-->
 	
 	 <div class="slider">
@@ -130,8 +131,8 @@
     document.getElementById('button2').style.backgroundColor = colorValues.split(",")[1];
     document.getElementById('button3').style.backgroundColor = colorValues.split(",")[2];
     
-    modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
-    modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';
+   // modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
+   // modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';
     
     });
 
@@ -199,7 +200,7 @@
   #dropdwn {
     position: absolute;
     bottom: 16px;
-    left: 16px;
+    right: 16px;
     max-width: unset;
     transform: unset;
   }
