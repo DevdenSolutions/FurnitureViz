@@ -69,8 +69,8 @@
 console.log(annotationName[1]);
     div.innerHTML = annotationName[1]; 
 
-    modelViewer.src = event.target.value+'.glb';
-    modelViewer.iosSrc = event.target.value+ '.usdz';
+    modelViewer.src = annotationName[0]+'.glb';
+    modelViewer.iosSrc = annotationName[0]+ '.usdz';
     });
 
   /*window.switchSrc = (element, name, sofaName) => {
