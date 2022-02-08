@@ -51,6 +51,8 @@
       <option value="Brown Chair||Brown">Brown Chair</option>
       <option value="Orange Chair||Orange">Orange Chair</option>
     </select><br>
+	<label for="show-text">Show Text:</label>
+    <input id="show-text" type="checkbox" checked="true">
   </div>
   
     <button class="Hotspot" id ="anectode" slot="hotspot-7" data-position="0.17229555381485404m 0.8098294965826215m 0.6398929798039262m" data-normal="-0.28712627885859493m 0.9555782359326451m 0.06654874154084724m" data-visibility-attribute="visible"> <div id="annotation">Green Sofa</div></button>
@@ -72,6 +74,17 @@ console.log(annotationName[1]);
     modelViewer.src = annotationName[0]+'.glb';
     modelViewer.iosSrc = annotationName[0]+ '.usdz';
     });
+	
+	const checkbox = modelViewer.querySelector('#show-text');
+    checkbox.addEventListener('change', () => {
+    modelViewer.querySelectorAll('button').forEach((hotspot) => {
+      if (checkbox.checked) {
+        hotspot.classList.remove('hide');
+      } else {
+        hotspot.classList.add('hide');
+      }
+    });
+  });
 
   /*window.switchSrc = (element, name, sofaName) => {
     const base = "./" + name;	
