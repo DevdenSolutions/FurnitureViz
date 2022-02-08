@@ -44,9 +44,9 @@
   <div id="dropdwn">
     <label for="drpdwnsrc">Product:</label>
     <select id="drpdwnsrc">
-      <option value="Green Sofa">Green Sofa</option>
-      <option value="Red Sofa">Red Sofa</option>
-      <option value="Pink Sofa">Pink Sofa</option>
+      <option value="Green Sofa||hj">Green Sofa</option>
+      <option value="Red Sofa||sd">Red Sofa</option>
+      <option value="Pink Sofa||sdf">Pink Sofa</option>
     </select><br>
   </div>
   
@@ -62,8 +62,9 @@
   const div = document.getElementById('annotation'); 
 
   modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => {
-    var annotationName= event.target.value.replace("_"," ");
-    div.innerHTML = "dasdfsdfsdfsdfsdfsdfsdfsdfkojioniosndfisofdihsodfjso    sdofjiosjdfiosdjfoij   sdoifjsiofjsifj io    sdifsidfsiodfnsijfisjodfi"; 
+    var annotationName= event.target.value.split("||");
+console.log(annotationName[1]);
+    div.innerHTML = annotationName[1]; 
 
     modelViewer.src = event.target.value+'.glb';
     modelViewer.iosSrc = event.target.value+ '.usdz';
