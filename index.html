@@ -55,7 +55,7 @@
     <input id="show-text" type="checkbox" checked="true">
   </div>
   
-    <button class="Hotspot" id ="anectode" slot="hotspot-7" data-position="0.17229555381485404m 0.8098294965826215m 0.6398929798039262m" data-normal="-0.28712627885859493m 0.9555782359326451m 0.06654874154084724m" data-visibility-attribute="visible"> <div id="annotation">Green Sofa</div></button>
+    <button class="Hotspot" id ="anectode" slot="hotspot-7" data-position="0.17229555381485404m 0.8098294965826215m 0.6398929798039262m" data-normal="-0.28712627885859493m 0.9555782359326451m 0.06654874154084724m"> <div id="annotation">Green Sofa</div></button>
     <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
     </div>
@@ -77,17 +77,16 @@ console.log(annotationName[1]);
 	
 	const checkbox = modelViewer.querySelector('#show-text');
     checkbox.addEventListener('change', () => {
-    document.getElementById('anectode').forEach((hotspot) => {
+    
       if (checkbox.checked) {
-        hotspot.classList.remove('hide');
+         document.getElementById("anectode").classList.remove('hide');
 		console.log(checkbox.checked);
 		
       } else {
-        hotspot.classList.add('hide');
+         document.getElementById("anectode").classList.add('hide');
 		console.log(checkbox.checked);
-		console.log(hotspot.classList.name);
       }
-    });
+    
   });
 
   /*window.switchSrc = (element, name, sofaName) => {
