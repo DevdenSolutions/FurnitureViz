@@ -77,7 +77,7 @@ console.log(annotationName[1]);
 	
 	const checkbox = modelViewer.querySelector('#show-text');
     checkbox.addEventListener('change', () => {
-    modelViewer.getElementById('#anectode').forEach((hotspot) => {
+    document.getElementById('anectode').forEach((hotspot) => {
       if (checkbox.checked) {
         hotspot.classList.remove('hide');
 		console.log(checkbox.checked);
