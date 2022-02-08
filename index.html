@@ -64,8 +64,8 @@
       
     </select><br>-->
 	
-	 <div class="slider">
-    <div class="slides">
+	<div class="slider">
+     <div class="slides">
       <button class="slide selected" id="button1" onclick="switchSrc(this,0)" style="display: inline-block; background-color: #9ACD32;"></button>
 	  <button class="slide" id="button2" onclick="switchSrc(this,1)" style="display: inline-block; background-color: #A52A2A;"></button>
 	  <button class="slide" id="button3" onclick="switchSrc(this,2)" style="display: inline-block; background-color: #BA55D3;"></button>
@@ -98,8 +98,6 @@
   const modelViewer = document.querySelector("model-viewer");
   const div = document.getElementById('annotation'); 
   
-  //var dataPositions = [["0.17229555381485404m","0.8098294965826215m","0.6398929798039262m"],["0.1571773503677714m","0.34811380176846585m","-0.18072995252219695m"]];
-  //var dataPositions = [[0.17229555381485404,0.8098294965826215,0.6398929798039262],[0.1571773503677714,0.34811380176846585,-0.18072995252219695]];
   <!-- modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => { -->
   
     <!-- var annotationName= event.target.value.split("||"); -->
@@ -153,7 +151,7 @@
   
   window.switchSrc = (element, index) => {	
     
-	modelViewer.src = colorValues.split(",")[index]+" "+ productName+ '.glb';
+	modelViewer.src = colorValues.split(",")[index]+" "+productName+ '.glb';
 	modelViewer.iosSrc = colorValues.split(",")[index]+" "+productName + '.usdz';
     
    
