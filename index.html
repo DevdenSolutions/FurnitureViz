@@ -80,9 +80,9 @@
       <option value="Chair||Black,Brown,Orange||sd">Chair</option>
       <option value="Lamp||Green,Pink,Red||sdf">Lamp</option>
       <option value="Bed||Black,White,Brown||sdf">Bed</option>
-      <option value="DinningTable||Green,White,Brown||sdf">DinningTable</option>
+      <option value="DinningTable||Green,White,Brown||sdf">Dining Table</option>
     </select><br>
-	<label for="show-text">Show Text:</label>
+	<label for="show-text">Annotations</label>
     <input id="show-text" type="checkbox" checked="true">
   </div>
   
@@ -131,8 +131,8 @@
     document.getElementById('button2').style.backgroundColor = colorValues.split(",")[1];
     document.getElementById('button3').style.backgroundColor = colorValues.split(",")[2];
     
-   // modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
-   // modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';
+    modelViewer.src = colorValues.split(",")[0]+" "+productName+'.glb';
+    modelViewer.iosSrc = colorValues.split(",")[0]+" "+productName+ '.usdz';
     
     });
 
@@ -200,7 +200,7 @@
   #dropdwn {
     position: absolute;
     bottom: 16px;
-    right: 16px;
+    left: 16px;
     max-width: unset;
     transform: unset;
   }
@@ -269,8 +269,8 @@
     text-align: center;
     overflow: hidden;
     position: absolute;
-	left: 10px;
-    bottom: 16px;
+	left: calc(50% - 100px);
+    bottom: 70px;
   }
 
   
