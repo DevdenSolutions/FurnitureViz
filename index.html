@@ -82,6 +82,9 @@
       <option value="Bed||Black,White,Brown||sdf">Bed</option>
       <option value="DinningTable||Green,White,Brown||sdf">Dining Table</option>
     </select><br>
+  </div>
+  
+  <div id="check">    
 	<label for="show-text">Annotations</label>
     <input id="show-text" type="checkbox" checked="true">
   </div>
@@ -98,21 +101,7 @@
   const modelViewer = document.querySelector("model-viewer");
   const div = document.getElementById('annotation'); 
   
-  <!-- modelViewer.querySelector('#drpdwnsrc').addEventListener('input', (event) => { -->
   
-    <!-- var annotationName= event.target.value.split("||"); -->
-    <!-- console.log(annotationName[1]); -->
-    <!-- div.innerHTML = annotationName[1];  -->
-    
-    <!-- modelViewer.src = annotationName[0]+ '.glb'; -->
-    <!-- modelViewer.iosSrc = annotationName[0]+ '.usdz'; -->
-	
-	  <!-- /*  modelViewer.updateHotspot({ -->
-      <!-- name: 'hotspot-7', -->
-      <!-- position: dataPositions[1] -->
-    <!-- });*/ -->
-	
-    <!-- }); -->
 	
 	var colorValues="";
     var productName = "";
@@ -202,6 +191,14 @@
     max-width: unset;
     transform: unset;
   }
+  
+  
+    #check {
+    position: absolute;
+    bottom: 16px;
+    right: 18px;
+  }
+  
   .hide{
     display: none;
   }
